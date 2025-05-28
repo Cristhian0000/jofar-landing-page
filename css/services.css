@@ -1,11 +1,10 @@
 /* === Services Section === */
 #services {
   background: linear-gradient(
-      -45deg,
-      rgba(2, 62, 138, 0.9),
-      rgba(0, 119, 182, 0.9)
-    ),
-    url("../images/services-bg.jpg") center/cover;
+    -45deg,
+    rgba(2, 62, 138, 0.9),
+    rgba(0, 119, 182, 0.9)
+  );
   padding: 4rem 2rem;
   border-radius: var(--border-radius);
   position: relative;

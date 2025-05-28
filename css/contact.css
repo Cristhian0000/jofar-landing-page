@@ -1,11 +1,10 @@
 /* === Contact Section === */
 #contact {
   background: linear-gradient(
-      135deg,
-      rgba(0, 119, 182, 0.95),
-      rgba(2, 62, 138, 0.95)
-    ),
-    url("../images/contact-bg.jpg") center/cover;
+    135deg,
+    rgba(0, 119, 182, 0.95),
+    rgba(2, 62, 138, 0.95)
+  );
   padding: 4rem 2rem;
   border-radius: var(--border-radius);
   position: relative;
