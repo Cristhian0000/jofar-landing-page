@@ -31,8 +31,7 @@
       135deg,
       rgba(243, 244, 246, 0.95),
       rgba(224, 231, 255, 0.95)
-    ),
-    url("../images/services-bg.jpg") center/cover fixed;
+    );
   border-radius: var(--border-radius);
   margin: calc(var(--header-height) + 2rem) 0 2rem;
   position: relative;
