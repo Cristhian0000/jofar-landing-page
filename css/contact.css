@@ -1,0 +1,274 @@
+/* === Contact Section === */
+#contact {
+  background: linear-gradient(
+      135deg,
+      rgba(0, 119, 182, 0.95),
+      rgba(2, 62, 138, 0.95)
+    ),
+    url("../images/contact-bg.jpg") center/cover;
+  padding: 4rem 2rem;
+  border-radius: var(--border-radius);
+  position: relative;
+  overflow: hidden;
+  box-shadow: var(--shadow-strong);
+}
+
+#contact::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--glass-background);
+  backdrop-filter: blur(5px);
+  z-index: 1;
+}
+
+#contact > * {
+  position: relative;
+  z-index: 2;
+}
+
+#contact h2 {
+  color: var(--texto-claro);
+  margin-bottom: 3rem;
+  font-size: 3rem;
+  text-align: center;
+  position: relative;
+  font-weight: 700;
+}
+
+#contact h2::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 3px;
+  background: var(--color-acento);
+  border-radius: 2px;
+}
+
+#contact > p {
+  text-align: center;
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  color: var(--texto-claro);
+}
+
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding: 3rem 2rem;
+  margin: 0;
+  background: var(--glass-background);
+  border-radius: var(--border-radius);
+  border: 1px solid var(--glass-border);
+  height: fit-content;
+}
+
+.contact-info li {
+  padding: 1.2rem;
+  border-radius: var(--border-radius);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: var(--transition);
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  font-size: 1.1rem;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.contact-info li:hover {
+  transform: translateX(5px);
+  background: rgba(255, 255, 255, 0.1);
+  border-color: var(--color-acento);
+}
+
+.contact-info strong {
+  color: var(--color-acento);
+  margin-right: 0.5rem;
+}
+
+.contact-info i {
+  background: var(--color-primario);
+  padding: 1rem;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  color: var(--texto-claro);
+  transition: var(--transition);
+  min-width: 3rem;
+  height: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.contact-info li:hover i {
+  background: var(--color-acento);
+  color: var(--texto-oscuro);
+  transform: scale(1.1);
+}
+
+.contact-info a {
+  color: var(--color-acento);
+  text-decoration: underline;
+  transition: var(--transition);
+}
+
+.contact-info a:hover {
+  color: var(--color-acento-hover);
+}
+
+/* === Form === */
+.contact-form {
+  width: 100%;
+  background: var(--glass-background);
+  padding: 3rem;
+  border-radius: var(--border-radius);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(10px);
+  box-shadow: var(--shadow-strong);
+  animation: slideUp 0.5s ease-out forwards;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: var(--texto-claro);
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+input,
+textarea {
+  width: 100%;
+  padding: 1.2rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 2px solid var(--glass-border);
+  border-radius: var(--border-radius);
+  color: var(--texto-claro);
+  transition: var(--transition);
+  backdrop-filter: blur(5px);
+  font-size: 1.1rem;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+input:focus,
+textarea:focus {
+  outline: none;
+  border-color: var(--color-acento);
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0 0 3px rgba(144, 224, 239, 0.3);
+  transform: translateY(-2px);
+}
+
+textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+button[type="submit"] {
+  width: 100%;
+  padding: 1.2rem;
+  background: var(--color-acento);
+  color: var(--texto-oscuro);
+  border: none;
+  border-radius: var(--border-radius);
+  font-weight: 700;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: var(--transition);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+button[type="submit"]:hover {
+  background: var(--color-acento-hover);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-hover);
+}
+
+.contact-wrapper {
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr;
+  gap: 3rem;
+  margin: 0 auto;
+  max-width: 1400px;
+  padding: 0 2rem;
+}
+
+@media (max-width: 992px) {
+  .contact-wrapper {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    padding: 0;
+    margin: 0 1.5rem;
+  }
+
+  .contact-form,
+  .contact-info {
+    padding: 2rem;
+    width: 100%;
+  }
+
+  .contact-info {
+    margin: 0;
+  }
+
+  .contact-info li {
+    padding: 1.2rem;
+    margin-right: 0;
+  }
+
+  .contact-info li:hover {
+    transform: none;
+  }
+
+  #contact {
+    padding: 4rem 1rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .contact-wrapper {
+    margin: 0 1rem;
+  }
+
+  .contact-form,
+  .contact-info {
+    padding: 1.5rem;
+  }
+
+  .form-group {
+    margin-bottom: 1.2rem;
+  }
+
+  input,
+  textarea,
+  select {
+    padding: 1rem;
+  }
+}

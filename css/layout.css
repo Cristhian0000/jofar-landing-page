@@ -1,0 +1,238 @@
+/* === Reset CSS === */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* === Variables === */
+:root {
+  --color-primario: #023e8a;
+  --color-primario-oscuro: #012a5e;
+  --color-secundario: #0077b6;
+  --color-acento: #90e0ef;
+  --color-acento-hover: #48cae4;
+  --texto-claro: #ffffff;
+  --texto-oscuro: #222222;
+  --background-color: #ffffff;
+  --background-alt: #f8f9fa;
+  --shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  --shadow-hover: 0 8px 16px rgba(0, 0, 0, 0.15);
+  --shadow-strong: 0 10px 30px rgba(0, 0, 0, 0.2);
+  --transition: all 0.3s ease;
+  --border-radius: 10px;
+  --header-height: 70px;
+  --font-primary: "Segoe UI", system-ui, -apple-system, sans-serif;
+  --gradient-primary: linear-gradient(
+    135deg,
+    var(--color-primario),
+    var(--color-secundario)
+  );
+  --gradient-light: linear-gradient(to right, #f3f4f6, #e0e7ff);
+  --glass-background: rgba(255, 255, 255, 0.1);
+  --glass-border: rgba(255, 255, 255, 0.2);
+}
+
+/* === Base Styles === */
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-primary);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  background: var(--gradient-primary);
+  color: var(--texto-claro);
+  min-height: 100vh;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* === Layout === */
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  visibility: hidden;
+  transition: var(--transition);
+  z-index: 999;
+}
+
+.overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* === Navigation === */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: var(--header-height);
+  background: var(--background-color);
+  box-shadow: var(--shadow);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 2rem;
+  z-index: 1000;
+  transition: var(--transition);
+}
+
+.navbar.scrolled {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+}
+
+.logo img {
+  height: auto;
+  width: 140px;
+}
+
+nav ul {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+}
+
+nav li a {
+  color: var(--color-primario);
+  font-size: 1.1rem;
+  font-weight: 500;
+  transition: var(--transition);
+  position: relative;
+  text-decoration: none;
+}
+
+nav li a:hover {
+  color: var(--color-acento);
+}
+
+nav li a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  width: 0;
+  height: 2px;
+  background: var(--color-acento);
+  transition: var(--transition);
+}
+
+nav li a:hover::after {
+  width: 100%;
+}
+
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  z-index: 1001;
+}
+
+.menu-toggle i {
+  font-size: 1.5rem;
+  color: var(--color-primario);
+}
+
+/* === Utilities === */
+
+/* === Footer === */
+footer {
+  text-align: center;
+  padding: 2rem;
+  margin-top: 4rem;
+  background: linear-gradient(
+    to right,
+    var(--color-primario-oscuro),
+    var(--color-primario)
+  );
+  position: relative;
+  overflow: hidden;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);
+}
+
+footer::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    var(--color-acento),
+    transparent
+  );
+}
+
+footer p {
+  font-size: 1.1rem;
+  opacity: 0.9;
+  margin: 0;
+  position: relative;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* === Animations === */
+[data-aos] {
+  opacity: 0;
+  transition: var(--transition);
+}
+
+[data-aos].aos-animate {
+  opacity: 1;
+}
+
+/* === Responsive === */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  nav {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 80%;
+    height: 100vh;
+    background: var(--background-color);
+    padding: calc(var(--header-height) + 2rem) 2rem 2rem;
+    transition: var(--transition);
+  }
+
+  nav.active {
+    right: 0;
+    box-shadow: var(--shadow);
+    width: 50%;
+  }
+
+  nav ul {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+}

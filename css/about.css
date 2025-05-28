@@ -1,0 +1,69 @@
+/* === About Section === */
+#about {
+  background: linear-gradient(
+      45deg,
+      rgba(2, 62, 138, 0.9),
+      rgba(0, 119, 182, 0.9)
+    ),
+    url("../images/about-bg.jpg") center/cover;
+  padding: 4rem 2rem;
+  border-radius: var(--border-radius);
+  position: relative;
+  overflow: hidden;
+  box-shadow: var(--shadow-strong);
+}
+
+#about::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--glass-background);
+  backdrop-filter: blur(5px);
+  z-index: 1;
+}
+
+#about > * {
+  position: relative;
+  z-index: 2;
+}
+
+#about h2 {
+  color: var(--texto-claro);
+  margin-bottom: 3rem;
+  font-size: 2.5rem;
+  text-align: center;
+  position: relative;
+}
+
+#about h2::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 3px;
+  background: var(--color-acento);
+  border-radius: 2px;
+}
+
+#about p {
+  background: var(--glass-background);
+  padding: 2rem;
+  border-radius: var(--border-radius);
+  margin: 1rem 2rem;
+  font-size: 1.2rem;
+  line-height: 1.8;
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(5px);
+  transition: var(--transition);
+}
+
+#about p:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-hover);
+  background: rgba(255, 255, 255, 0.15);
+}
